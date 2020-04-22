@@ -1,0 +1,19 @@
+.input-section {
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    input {
+      padding: 15px;
+      border: 1px solid;
+    }
+
+    button {
+      margin-left: 5px;
+      padding: 15px;
+      border: 1px solid;
+    }
+  }
+}
