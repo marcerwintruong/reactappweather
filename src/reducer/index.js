@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   pending: false,
-  forecasts: [],
+  forecasts: null,
   error: null
 };
 
@@ -28,6 +28,8 @@ export default function(state = initialState, action) {
     case FETCH_FORECASTS_ERROR:
       return {
         ...state,
+        pending: false,
+        forecasts: null,
         error: action.error
       };
 

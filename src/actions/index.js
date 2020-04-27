@@ -27,9 +27,16 @@ export const fetchForecasts = location => dispatch => {
   fetch(
     `https://jakobweather.herokuapp.com/jakobweather-dev?address=${location}`
   )
-    .then(res => res.json())
-    .then(forecasts => dispatch(fetchForecastsSuccess(forecasts)))
-    .catch(error => {
-      dispatch(fetchForecastsError(error));
-    });
+    .then(res => {
+      res.json().then(data => {
+        if (data.error) {
+          return dispatch(fetchForecastsError(data.error));
+        }
+
+        return dispatch(fetchForecastsSuccess(data));
+      });
+    })
+    .catch(() =>
+      dispatch(fetchForecastsError("Unable To Connect To Weather Service!"))
+    );
 };

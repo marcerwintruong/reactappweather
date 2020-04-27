@@ -46,6 +46,10 @@ class Input extends Component {
   }
 }
 
+Input.propTypes = {
+  fetchForecasts: PropTypes.func.isRequired
+};
+
 export default connect(
   null,
   { fetchForecasts }
