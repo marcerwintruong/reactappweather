@@ -137,8 +137,12 @@ class ForecastContents extends Component {
   };
 
   render() {
+    const { forecasts } = this.state;
     return (
-      <div className="section-forecasts-content">{this.handleRender()}</div>
+      <div className="section-forecasts-content">
+        <h2 className="location">{forecasts && forecasts.location}</h2>
+        {this.handleRender()}
+      </div>
     );
   }
 }
