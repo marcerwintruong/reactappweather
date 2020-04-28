@@ -34,6 +34,7 @@ class ForecastContents extends Component {
     } else if (forecasts) {
       return (
         <>
+          <h2 className="location">{forecasts.location}</h2>
           <section className="section-buttons">
             <button
               onClick={() =>
@@ -78,7 +79,7 @@ class ForecastContents extends Component {
           {current === "now" && (
             <div className="forecast-currently">
               <section className="first-view">
-                <p>{forecasts.forecast.currently.temperature} °C -</p>
+                <p>{forecasts.forecast.currently.temperature} °C </p>
                 <p>{forecasts.forecast.currently.summary}</p>
               </section>
 
@@ -139,10 +140,7 @@ class ForecastContents extends Component {
   render() {
     const { forecasts } = this.state;
     return (
-      <div className="section-forecasts-content">
-        <h2 className="location">{forecasts && forecasts.location}</h2>
-        {this.handleRender()}
-      </div>
+      <div className="section-forecasts-content">{this.handleRender()}</div>
     );
   }
 }
