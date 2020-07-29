@@ -8,7 +8,7 @@ function Swiper({ forecasts, current }) {
   return (
     <div className="slider">
       <div className="slides">
-        {forecasts[current].data.map(prop => (
+        {forecasts[current].data.map((prop) => (
           <div key={uuidv1()}>
             <section className="first-view">
               {current === "daily" ? (

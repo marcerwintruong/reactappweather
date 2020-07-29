@@ -14,7 +14,7 @@ class ForecastContents extends Component {
       current: "now",
       fetching: false,
       forecasts: null,
-      error: null
+      error: null,
     };
   }
 
@@ -22,7 +22,7 @@ class ForecastContents extends Component {
     return {
       fetching,
       forecasts,
-      error
+      error,
     };
   }
 
@@ -39,7 +39,7 @@ class ForecastContents extends Component {
             <button
               onClick={() =>
                 this.setState({
-                  current: "now"
+                  current: "now",
                 })
               }
               name="now"
@@ -52,7 +52,7 @@ class ForecastContents extends Component {
             <button
               onClick={() =>
                 this.setState({
-                  current: "hourly"
+                  current: "hourly",
                 })
               }
               name="hourly"
@@ -65,7 +65,7 @@ class ForecastContents extends Component {
             <button
               onClick={() =>
                 this.setState({
-                  current: "daily"
+                  current: "daily",
                 })
               }
               name="daily"
@@ -138,17 +138,16 @@ class ForecastContents extends Component {
   };
 
   render() {
-    const { forecasts } = this.state;
     return (
       <div className="section-forecasts-content">{this.handleRender()}</div>
     );
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   fetching: state.pending,
   forecasts: state.forecasts,
-  error: state.error
+  error: state.error,
 });
 
 export default connect(mapStateToProps)(ForecastContents);

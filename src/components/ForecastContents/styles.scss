@@ -53,10 +53,31 @@
     .first-view {
       border-bottom: 1px solid;
       padding: 5px;
+      height: 126px;
+    }
+
+    .first-view > p:first-child {
+      padding-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 20px;
+      padding-top: 10px;
     }
 
     .detail {
       padding: 5px;
+    }
+
+    .detail > p {
+      padding-bottom: 20px;
+    }
+
+    .detail > p:first-child {
+      padding-top: 10px;
+    }
+
+    .detail > p:last-child {
+      padding-bottom: 10px;
     }
   }
 
