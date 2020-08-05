@@ -15,7 +15,10 @@ function App() {
         <Corner />
         <Input />
         <ForecastContents />
-        <p>Created by Jakob Mathieu</p>
+        <p>
+          Created by Jakob Mathieu <br />
+          a.k.a Trí Nghĩa
+        </p>
       </div>
     </Provider>
   );
