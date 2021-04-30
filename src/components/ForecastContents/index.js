@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Spin } from "antd";
 
 import Loader from "../Loader";
 import Swiper from "../Swiper";
@@ -30,7 +31,7 @@ class ForecastContents extends Component {
     const { current, fetching, forecasts, error } = this.state;
 
     if (fetching) {
-      return <Loader />;
+      return <Spin size="large" />;
     } else if (forecasts) {
       return (
         <>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Form, Input as AntInput, Button } from "antd";
 
 import { fetchForecasts } from "../../actions";
 
@@ -11,22 +12,21 @@ class Input extends Component {
     super(props);
 
     this.state = {
-      location: ""
+      location: "",
     };
   }
 
-  onSubmit = e => {
-    e.preventDefault();
+  onSubmit = () => {
     const { location } = this.state;
 
     this.props.fetchForecasts(location);
   };
 
-  onChange = e => {
+  onChange = (e) => {
     const { value } = e.target;
 
     this.setState({
-      location: value
+      location: value,
     });
   };
 
@@ -35,22 +35,33 @@ class Input extends Component {
 
     return (
       <div className="input-section">
-        <form onSubmit={this.onSubmit}>
-          <input placeholder="Location" onChange={this.onChange} />
-          <button type="submit" disabled={location.length === 0}>
-            Search
-          </button>
-        </form>
+        <Form layout="inline" onFinish={this.onSubmit}>
+          <Form.Item>
+            <AntInput
+              onChange={this.onChange}
+              placeholder="Location"
+              size="large"
+            />
+          </Form.Item>
+
+          <Form.Item>
+            <Button
+              htmlType="submit"
+              type="primary"
+              size="large"
+              disabled={location.length === 0}
+            >
+              Search
+            </Button>
+          </Form.Item>
+        </Form>
       </div>
     );
   }
 }
 
 Input.propTypes = {
-  fetchForecasts: PropTypes.func.isRequired
+  fetchForecasts: PropTypes.func.isRequired,
 };
 
-export default connect(
-  null,
-  { fetchForecasts }
-)(Input);
+export default connect(null, { fetchForecasts })(Input);

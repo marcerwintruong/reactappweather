@@ -1,5 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
+import { Row, Col } from "antd";
 
 import store from "./store";
 import Corner from "./components/Corner";
@@ -12,13 +13,18 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Corner />
-        <Input />
-        <ForecastContents />
-        <p>
-          Created by Jakob Mathieu <br />
-          a.k.a Trí Nghĩa
-        </p>
+        <Row justify="center">
+          <Corner />
+
+          <Col span="18">
+            <Input />
+            <ForecastContents />
+            <p>
+              Created by Marc Erwin <br />
+              a.k.a Trí Nghĩa
+            </p>
+          </Col>
+        </Row>
       </div>
     </Provider>
   );
